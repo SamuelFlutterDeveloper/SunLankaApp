@@ -1184,6 +1184,46 @@ class _HomePageState extends State<HomePage> {
                                               BorderRadius.circular(30),
                                           image: const DecorationImage(
                                             image: AssetImage(
+                                                'assets/images/royal.jpg'),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      'Royal Pearl Hills\nNuwara Eliya',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Column(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => CheckIn()),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: sw * 0.3,
+                                        height: sh * 0.2,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          image: const DecorationImage(
+                                            image: AssetImage(
                                                 'assets/images/cheRiz Boutique.jpg'),
                                             fit: BoxFit.cover,
                                           ),
@@ -1275,6 +1315,46 @@ class _HomePageState extends State<HomePage> {
                                     const SizedBox(height: 5),
                                     const Text(
                                       'Aaradhya\nNuwara Eliya',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Column(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => CheckIn()),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: sw * 0.3,
+                                        height: sh * 0.2,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          image: const DecorationImage(
+                                            image: AssetImage(
+                                                'assets/images/Heritage Grand (2).jpg'),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    const Text(
+                                      ' Heritage Grand\nNuwara Eliya',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,

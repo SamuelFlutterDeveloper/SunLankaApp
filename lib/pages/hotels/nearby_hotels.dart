@@ -23,13 +23,20 @@ class _NearbyHotelState extends State<NearbyHotel> {
   @override
   void initState() {
     super.initState();
-    // Initialize isFavorited for three hotels, defaulting to false
-    isFavorited = List<bool>.filled(3, false);
-    carouselIndices = List<int>.filled(3, 0);
+    // Initialize isFavorited and carouselIndices for 4 hotels
+    isFavorited = List<bool>.filled(6, false);
+    carouselIndices = List<int>.filled(6, 0);
   }
 
   String _getRatingByIndex(int index) {
-    List<String> ratings = ['4.1', '4.8', '3.8']; // Add more ratings as needed
+    List<String> ratings = [
+      '4.1',
+      '4.8',
+      '3.8',
+      '4.4',
+      '4.0',
+      '3.5',
+    ]; // Ensure you have ratings for all the hotels
     if (index >= 0 && index < ratings.length) {
       return ratings[index];
     }
@@ -58,6 +65,23 @@ class _NearbyHotelState extends State<NearbyHotel> {
         await prefs.setString('hotelName', 'Hotel Aaradhya');
         await prefs.setString('hotelUrl',
             'https://www.google.com/maps/place/Aaradhya+Nuwaraeliya/@6.9531069,80.7724259,17z/data=!4m9!3m8!1s0x3ae381c5ddd7fd89:0x41ba7998d6aedf31!5m2!4m1!1i2!8m2!3d6.9531069!4d80.7750008!16s%2Fg%2F11vc2v5pwm?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D');
+      } else if (index == 3) {
+        await prefs.setString('hotelImage', 'assets/images/royal.jpg');
+        await prefs.setString('hotelName', 'Royal Pearl Hills');
+        await prefs.setString('hotelUrl',
+            'https://www.google.com/maps/place/Royal+Pearl+Hills+Nuwara+Eliya/@6.9563049,80.7821431,17z/data=!4m9!3m8!1s0x3ae380f45a417663:0x30672220e8fc4d9f!5m2!4m1!1i2!8m2!3d6.9563049!4d80.784718!16s%2Fg%2F11b7251m5z?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D');
+      } else if (index == 4) {
+        await prefs.setString(
+            'hotelImage', 'assets/images/Heritage Grand (2).jpg');
+        await prefs.setString('hotelName', ' Heritage Grand');
+        await prefs.setString('hotelUrl',
+            'https://www.google.com/maps/place/The+Grand+Hotel+Nuwara+Eliya+-+Heritage+Grand/@6.9682783,80.7624476,17z/data=!4m9!3m8!1s0x3ae381ad390b11c5:0x8731bce5b235de1e!5m2!4m1!1i2!8m2!3d6.9682783!4d80.7650225!16s%2Fm%2F03g_zk_?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D');
+      } else if (index == 5) {
+        await prefs.setString(
+            'hotelImage', 'assets/images/Hostel Bungalow (1).jpg');
+        await prefs.setString('hotelName', 'Hostel Bungalow');
+        await prefs.setString('hotelUrl',
+            'https://www.google.com/maps/search/hostel+bungalow+nuwara+eliya/@6.9704869,80.7729515,15.75z?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D');
       }
 
       // Debugging purpose: print the stored values
@@ -128,6 +152,57 @@ class _NearbyHotelState extends State<NearbyHotel> {
       ClipRRect(
         borderRadius: BorderRadius.circular(25),
         child: Image.asset('assets/images/sadhabishegam 3.jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+    ];
+    final myitems4 = [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/royal.jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/royal1.jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/royal2.jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+    ];
+    final myitems5 = [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/Heritage Grand (2).jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/Heritage Grand (1).jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/Heritage Grand (3).jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+    ];
+    final myitems6 = [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/Hostel Bungalow (1).jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/Hostel Bungalow (2).jpg',
+            width: sw * 0.9, fit: BoxFit.cover),
+      ),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(25),
+        child: Image.asset('assets/images/Hostel Bungalow (3).jpg',
             width: sw * 0.9, fit: BoxFit.cover),
       ),
     ];
@@ -374,6 +449,34 @@ class _NearbyHotelState extends State<NearbyHotel> {
                                         HotelPackages(), // Third page
                                   ),
                                 );
+                              } else if (index == 3) {
+                                print('55555555555555555555555555555555555');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        HotelPackages(), // Third page
+                                  ),
+                                );
+                              } else if (index == 4) {
+                                print(
+                                    '5777777777777777777777555555555555555555555555555555555');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        HotelPackages(), // Third page
+                                  ),
+                                );
+                              } else if (index == 5) {
+                                print('111111111111111111111111111111111');
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        HotelPackages(), // Third page
+                                  ),
+                                );
                               }
                             },
                             child: Container(
@@ -475,13 +578,13 @@ class _NearbyHotelState extends State<NearbyHotel> {
             children: [
               SizedBox(height: sh * 0.05),
               buildHotelSection(
-                myitems1,
-                'CheRiz Boutique',
-                '9/36 Unique View Road,\n222000 Nuwara Eliya,SriLanka',
-                '₹ 5,500',
+                myitems4,
+                'Royal Pearl Hills', // Updated name for the fourth hotel
+                '123 Royal Road,\nNuwara Eliya, Sri Lanka',
+                '₹ 4,000',
                 'Cancellation free',
                 'Breakfast included',
-                0, // Index for first hotel
+                3, // Index for fourth hotel
               ),
               SizedBox(height: 30),
               buildHotelSection(
@@ -502,6 +605,36 @@ class _NearbyHotelState extends State<NearbyHotel> {
                 'Cancellation free',
                 'Breakfast included',
                 2, // Index for third hotel
+              ),
+              SizedBox(height: 30),
+              buildHotelSection(
+                myitems1,
+                'CheRiz Boutique',
+                '9/36 Unique View Road,\n222000 Nuwara Eliya,SriLanka',
+                '₹ 5,500',
+                'Cancellation free',
+                'Breakfast included',
+                0, // Index for first hotel
+              ),
+              SizedBox(height: 30),
+              buildHotelSection(
+                myitems5,
+                ' Heritage Grand', // Updated name for the fourth hotel
+                ' Nuwara Eliya, 22200 \nNuwara Eliya, Sri Lanka',
+                '₹ 4,500',
+                'Cancellation free',
+                'Breakfast included',
+                4, // Index for fourth hotel
+              ),
+              SizedBox(height: 30),
+              buildHotelSection(
+                myitems6,
+                'Hostel Bungalow', // Updated name for the fourth hotel
+                '1/7 Unique View Road,22200\nNuwara Eliya, Sri Lanka',
+                '₹ 3,000',
+                'Cancellation free',
+                'Breakfast included',
+                5, // Index for fourth hotel
               ),
               SizedBox(height: 30),
             ],

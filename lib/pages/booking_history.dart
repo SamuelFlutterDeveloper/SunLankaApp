@@ -14,7 +14,7 @@ class HotelBookingHistory extends StatefulWidget {
 }
 
 class _HotelBookingHistoryState extends State<HotelBookingHistory> {
-  List<bool> featureStates = List.generate(5, (index) => false);
+  List<bool> featureStates = List.generate(6, (index) => false);
   // Variables for booking details
   String? hotelImage;
   String? hotelName;
@@ -132,7 +132,7 @@ class _HotelBookingHistoryState extends State<HotelBookingHistory> {
     double sh = MediaQuery.of(context).size.height; // Screen height
 
     return Container(
-      height: sh * 0.27, // Height is 25% of screen height
+      height: sh * 0.28, // Height is 25% of screen height
       width: sw * 0.88, // Width is 88% of screen width
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -147,7 +147,7 @@ class _HotelBookingHistoryState extends State<HotelBookingHistory> {
       ),
       child: Padding(
         padding:
-            EdgeInsets.symmetric(horizontal: sw * 0.04, vertical: sh * 0.02),
+            EdgeInsets.symmetric(horizontal: sw * 0.04, vertical: sh * 0.03),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -223,7 +223,7 @@ class _HotelBookingHistoryState extends State<HotelBookingHistory> {
                 ),
               ],
             ),
-            SizedBox(height: sh * 0.04), // Adjust space between content
+            SizedBox(height: sh * 0.03), // Adjust space between content
             Row(
               children: [
                 GestureDetector(
@@ -270,7 +270,8 @@ class _HotelBookingHistoryState extends State<HotelBookingHistory> {
               ],
             ),
             SizedBox(
-                height: sh * 0.02), // Space between buttons and Room Access
+              height: 20,
+            ),
             Center(
               child: GestureDetector(
                 onTap: () {
@@ -561,6 +562,7 @@ class _HotelBookingHistoryState extends State<HotelBookingHistory> {
                     _buildFeatureRow('AC', 2, setState),
                     _buildFeatureRow('Windows', 3, setState),
                     _buildFeatureRow('TV', 4, setState),
+                    _buildFeatureRow('Geyser', 5, setState),
                     SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {

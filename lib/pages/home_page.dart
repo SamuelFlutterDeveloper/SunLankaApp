@@ -296,6 +296,10 @@ class _HomePageState extends State<HomePage> {
 
     final List<Map<String, String>> myItems = [
       {
+        'image': 'assets/images/sri-lanka-package-from-India3.png',
+        'title': '',
+      },
+      {
         'image': 'assets/images/north srilanka.jpg',
         'title': 'North SriLanka Tour Package',
       },
@@ -306,7 +310,7 @@ class _HomePageState extends State<HomePage> {
       {
         'image': 'assets/images/temple.jpg',
         'title': 'Temple Tour Package',
-      }
+      },
     ];
     void _showCityList() {
       showModalBottomSheet(
@@ -789,14 +793,14 @@ class _HomePageState extends State<HomePage> {
                                                     color: Colors.white,
                                                   ),
                                                 ),
-                                                Text(
-                                                  'Now available for booking',
-                                                  style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.amber,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
+                                                // Text(
+                                                //   'Now available for booking',
+                                                //   style: TextStyle(
+                                                //     fontSize: 15,
+                                                //     color: Colors.amber,
+                                                //     fontWeight: FontWeight.bold,
+                                                //   ),
+                                                // ),
                                               ],
                                             ),
                                           ),
@@ -805,7 +809,7 @@ class _HomePageState extends State<HomePage> {
                                                   10), // Add space between text and button
                                           GestureDetector(
                                             onTap: () {
-                                              if (index == 0) {
+                                              if (index == 1) {
                                                 print(
                                                     '1===========-------------');
                                                 Navigator.push(
@@ -813,7 +817,7 @@ class _HomePageState extends State<HomePage> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             NorthsrilankaTourpackage()));
-                                              } else if (index == 1) {
+                                              } else if (index == 2) {
                                                 print(
                                                     '2===========-------------');
                                                 Navigator.push(
@@ -821,7 +825,7 @@ class _HomePageState extends State<HomePage> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             SouthsrilankaTourpackage()));
-                                              } else if (index == 2) {
+                                              } else if (index == 3) {
                                                 print(
                                                     '3===========-------------');
                                                 Navigator.push(

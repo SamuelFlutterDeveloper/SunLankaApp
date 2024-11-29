@@ -92,7 +92,7 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      "Please enter the 10-digit phone number",
+                      "Please enter the 9-digit phone number",
                       style: TextStyle(
                           color: const Color.fromARGB(255, 233, 255, 33),
                           fontWeight: FontWeight.bold,
@@ -136,10 +136,9 @@ class _LoginState extends State<Login> {
                     Spacer(), // Push content to center
                     GestureDetector(
                       onTap: () async {
-                        // Validate the phone number before navigating
-                        String? validationMessage =
-                            Validator.validateMobile(phoneNumber);
-                        if (validationMessage == null) {
+                        // Check if the phone number is exactly 9 digits
+                        if (phoneNumber.length == 9 &&
+                            RegExp(r'^\d{9}$').hasMatch(phoneNumber)) {
                           // Save the phone number locally
                           await _savePhoneNumber();
                           print(
@@ -156,10 +155,12 @@ class _LoginState extends State<Login> {
                         } else {
                           // Show an error message if validation fails
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 173, 30, 20),
-                              content: Text(validationMessage),
+                            const SnackBar(
+                              backgroundColor: Color.fromARGB(255, 173, 30, 20),
+                              content: Text(
+                                'Please enter a valid 9-digit phone number.',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           );
                         }
@@ -169,7 +170,8 @@ class _LoginState extends State<Login> {
                         width: screenWidth * 0.8, // Responsive width
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(27),
-                          color: phoneNumber.length == 10
+                          color: phoneNumber.length == 9 &&
+                                  RegExp(r'^\d{9}$').hasMatch(phoneNumber)
                               ? Mycolor.ButtonColor
                               : Colors
                                   .grey, // Change color if phone number is valid
@@ -186,6 +188,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+
                     SizedBox(
                         height: screenHeight * 0.05), // Spacing from bottom
                   ],

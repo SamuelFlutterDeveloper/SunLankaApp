@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sun_lunka_app/pages/customs/colors.dart';
@@ -217,7 +218,17 @@ class _HotelBookingState extends State<HotelBooking> {
               SizedBox(height: 30),
               GestureDetector(
                 onTap: () async {
-                  // Validate if required fields are filled except "Number of Children"
+                  if (aadhaarController.text.length != 12) {
+                    // Show SnackBar if Aadhaar number is not exactly 12 digits
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Please enter exactly 12 digits for NIC'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                    return; // Stop further execution
+                  }
+
                   if (firstNameController.text.isEmpty ||
                       _UserLastNameController.text.isEmpty ||
                       _emailController.text.isEmpty ||
@@ -225,7 +236,7 @@ class _HotelBookingState extends State<HotelBooking> {
                       aadhaarController.text.isEmpty ||
                       selectedRooms == '0' ||
                       selectedAdults == '0') {
-                    // Show SnackBar if any of the required fields is empty
+                    // Show SnackBar if any required field is empty
                     final snackBar = SnackBar(
                       content: Text('Please fill in all the fields'),
                       backgroundColor: Colors.red,
@@ -238,9 +249,10 @@ class _HotelBookingState extends State<HotelBooking> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => HotelPayment(
-                                grandTotal: totalAmount,
-                              )),
+                        builder: (context) => HotelPayment(
+                          grandTotal: totalAmount,
+                        ),
+                      ),
                     );
                   }
                 },
@@ -354,8 +366,13 @@ class _HotelBookingState extends State<HotelBooking> {
             ),
             child: TextField(
               controller: aadhaarController,
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(12),
+              ],
               decoration: InputDecoration(
-                hintText: 'Aadhaar Card Number',
+                hintText: 'National Identity Card (NIC)',
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(horizontal: 10),
               ),

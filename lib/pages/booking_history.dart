@@ -132,8 +132,7 @@ class _HotelBookingHistoryState extends State<HotelBookingHistory> {
     double sh = MediaQuery.of(context).size.height; // Screen height
 
     return Container(
-      height: sh * 0.28, // Height is 25% of screen height
-      width: sw * 0.88, // Width is 88% of screen width
+      padding: EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,

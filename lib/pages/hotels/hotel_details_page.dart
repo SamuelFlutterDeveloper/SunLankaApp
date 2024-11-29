@@ -388,16 +388,16 @@ class _HotelDetailsState extends State<HotelDetails> {
                             SizedBox(
                               height: 5,
                             ),
-                            Row(
-                              children: [
-                                Icon(Icons.breakfast_dining),
-                                SizedBox(width: 10),
-                                Text('Free Breakfast'),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
+                            // Row(
+                            //   children: [
+                            //     Icon(Icons.breakfast_dining),
+                            //     SizedBox(width: 10),
+                            //     Text('Free Breakfast'),
+                            //   ],
+                            // ),
+                            // SizedBox(
+                            //   height: 5,
+                            // ),
                             Row(
                               children: [
                                 Icon(Icons.local_parking),
@@ -488,10 +488,10 @@ class _HotelDetailsState extends State<HotelDetails> {
                             Row(
                               children: [
                                 Icon(
-                                  Icons.chair,
+                                  UniconsLine.tv_retro,
                                 ),
                                 SizedBox(width: 10),
-                                Text('Sofamates'),
+                                Text('TV'),
                               ],
                             ),
                             SizedBox(
@@ -500,10 +500,10 @@ class _HotelDetailsState extends State<HotelDetails> {
                             Row(
                               children: [
                                 Icon(
-                                  UniconsLine.phone,
+                                  Icons.bathtub_sharp,
                                 ),
                                 SizedBox(width: 10),
-                                Text('Telephone'),
+                                Text('Heater'),
                               ],
                             ),
                             SizedBox(
@@ -512,10 +512,10 @@ class _HotelDetailsState extends State<HotelDetails> {
                             Row(
                               children: [
                                 Icon(
-                                  Icons.meeting_room,
+                                  Icons.iron,
                                 ),
                                 SizedBox(width: 10),
-                                Text('Hall'),
+                                Text('Iron Facilities'),
                               ],
                             ),
                             SizedBox(
@@ -535,11 +535,27 @@ class _HotelDetailsState extends State<HotelDetails> {
                             ),
                             Row(
                               children: [
-                                Icon(
-                                  Icons.ac_unit,
+                                Image.asset(
+                                  'assets/images/private balcony.png',
+                                  width: 24, // Adjust the width as needed
+                                  height: 24, // Adjust the height as needed
                                 ),
                                 SizedBox(width: 10),
-                                Text('Ac'),
+                                Text('Private Balcony'),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/iron_jug.png',
+                                  width: 24, // Adjust the width as needed
+                                  height: 24, // Adjust the height as needed
+                                ),
+                                SizedBox(width: 10),
+                                Text('Heater Jug'),
                               ],
                             ),
                             SizedBox(

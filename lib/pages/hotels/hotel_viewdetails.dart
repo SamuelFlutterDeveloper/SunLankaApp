@@ -116,7 +116,7 @@ class _HistoryViewDetailsState extends State<HistoryViewDetails> {
         bounds: const Rect.fromLTWH(0, 240, 500, 20));
     page.graphics.drawString('Email: $email', font,
         bounds: const Rect.fromLTWH(0, 260, 500, 20));
-    page.graphics.drawString('Aadhaar: $aadhaar', font,
+    page.graphics.drawString('National Identity Card (NIC): $aadhaar', font,
         bounds: const Rect.fromLTWH(0, 280, 500, 20));
     page.graphics.drawString('Total Amount: $totalAmount', font,
         bounds: const Rect.fromLTWH(0, 300, 500, 20));
@@ -588,7 +588,7 @@ class _HistoryViewDetailsState extends State<HistoryViewDetails> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  'Aadhaar No',
+                                  '(NIC) Number',
                                   style: TextStyle(
                                     fontSize: 15, // Reduced font size
                                     fontWeight: FontWeight.bold,
